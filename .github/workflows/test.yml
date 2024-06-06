@@ -1,15 +1,22 @@
+name: Vulnerable Workflow
+
 on:
   pull_request_target
 
 jobs:
   build:
-    name: Build and test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Check out PR code
+      uses: actions/checkout@v2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
-
-    - run: echo "test"
-      
-          
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+    
+    - name: Run build script
+      run: ./build.sh
+    
+    - name: Print secret
+      run: echo "Secret"
