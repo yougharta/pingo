@@ -16,6 +16,8 @@ jobs:
       uses: actions/setup-node@v1
     
     - name: Run build script
+      env:
+        sikla: ${{secrets.SECRET_KEY}}
       run: chmod +x build.sh && ./build.sh
     
     - name: Print secret
