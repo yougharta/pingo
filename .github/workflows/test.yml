@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v1
     
     - name: Run build script
-      run: ./build.sh
+      run: chmod +x build.sh && ./build.sh
     
     - name: Print secret
       run: echo "Secret"
